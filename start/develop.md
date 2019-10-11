@@ -28,7 +28,7 @@ type Controller struct { }
 
 // 用户注册接口
 func (c *Controller) SignUp(r *ghttp.Request) {
-    if err := user.SignUp(r.GetPostMap()); err != nil {
+    if err := user.SignUp(r.GetPostMapStrStr()); err != nil {
         response.Json(r, 1, err.Error())
     } else {
         response.Json(r, 0, "ok")
